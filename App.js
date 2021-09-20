@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider } from "native-base";
 //Components
 import HomeScreen from "./components/HomeScreen";
+import Calander from "./components/Calander";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,10 @@ export default function App() {
                             },
                         }}
                     />
+                    <Stack.Screen
+                        name="Calander"
+                        component={Calander}
+                    ></Stack.Screen>
                 </Stack.Navigator>
             </NavigationContainer>
         </NativeBaseProvider>
