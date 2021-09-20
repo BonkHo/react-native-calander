@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NativeBaseProvider } from "native-base";
 //Components
 import HomeScreen from "./components/HomeScreen";
-import Calander from "./components/Calander";
+import CalendarScreen from "./components/CalendarScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,20 +31,15 @@ export default function App() {
                         }}
                     />
                     <Stack.Screen
-                        name="Calander"
-                        component={Calander}
+                        name="Calendar"
+                        component={CalendarScreen}
+                        options={{
+                            name: "Calendar",
+                            headerTitleAlign: "center",
+                        }}
                     ></Stack.Screen>
                 </Stack.Navigator>
             </NavigationContainer>
         </NativeBaseProvider>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-});
