@@ -1,18 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Text, View, TextInput } from "react-native";
 import { Button } from "native-base";
 import { NativeBaseProvider } from "native-base";
-import Moment from "react-moment";
-import "moment-timezone";
 import moment from "moment";
+import { formatTime } from "../utils/FormatTime";
 
 const HomeScreen = ({ navigation }) => {
     const [timerOn, setTimerOn] = useState(false);
     const [timer, setTimer] = useState(0);
+    const countRef = useRef(null);
 
     const startTimer = () => {
-        setTimerOn(false);
+        setTimerOn(true);
+        setTimer(1);
+        countRef.current = setInterval(
+            () => setTimer((timer) => timer + 1),
+            1000
+        );
     };
+
+    const stopTimer = () => {
+        setTimerOn(false);
+        clearInterval(countRef.current);
+        setTimer(0);
+    };
+
     return (
         <NativeBaseProvider>
             <View style={{ flex: 1, flexDirection: "column" }}>
@@ -51,14 +63,12 @@ const HomeScreen = ({ navigation }) => {
                         }}
                         placeholder="Activity"
                     />
-
-                    <Moment interval={30000}>
-                        <Text></Text>
-                    </Moment>
-
+                    <Text style={{ textAlign: "center" }}>
+                        {formatTime(timer)}
+                    </Text>
                     {timerOn ? (
                         <Button
-                            onPress={startTimer}
+                            onPress={stopTimer}
                             style={{
                                 margin: 40,
                             }}
@@ -67,7 +77,7 @@ const HomeScreen = ({ navigation }) => {
                         </Button>
                     ) : (
                         <Button
-                            onPress={() => setTimerOn(true)}
+                            onPress={startTimer}
                             style={{
                                 margin: 40,
                             }}
