@@ -8,6 +8,7 @@ import { formatTime } from "../utils/FormatTime";
 const HomeScreen = ({ navigation }) => {
     const [timerOn, setTimerOn] = useState(false);
     const [timer, setTimer] = useState(0);
+    const [activity, setActivity] = useState("Activity");
     const countRef = useRef(null);
 
     const startTimer = () => {
@@ -63,6 +64,7 @@ const HomeScreen = ({ navigation }) => {
                         }}
                         placeholder="Activity"
                     />
+                    
                     <Text style={{ textAlign: "center" }}>
                         {formatTime(timer)}
                     </Text>
