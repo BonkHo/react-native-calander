@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { View } from "react-native";
 import {
     Calendar,
     CalendarList,
@@ -7,24 +8,17 @@ import {
 } from "react-native-calendars";
 
 const CalendarScreen = ({ navigation }) => {
-    let markedDate = {};
-    const [select, setSelect] = useState(markedDate);
-
     return (
-        <Calendar
-            style={{
-                borderWidth: 1,
-                borderColor: "gray",
-                height: "75%",
+        <Agenda
+            items={{
+                "2021-09-22": [{ name: "item 1 - any js object" }],
+                "2021-09-23": [{ name: "item 2 - any js object", height: 80 }],
+                "2021-09-24": [],
+                "2021-09-25": [
+                    { name: "item 3 - any js object" },
+                    { name: "any js object" },
+                ],
             }}
-            onDayPress={(day) => {
-                markedDate[day.dateString] = {
-                    selected: true,
-                    selectedColor: "blue",
-                };
-                setSelect(markedDate);
-            }}
-            markedDates={select}
         />
     );
 };
