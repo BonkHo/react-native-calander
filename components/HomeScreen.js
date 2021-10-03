@@ -39,7 +39,9 @@ const HomeScreen = ({ navigation }) => {
                 >
                     <Text
                         style={{
+                            color: "black",
                             textAlign: "center",
+                            fontSize: 20,
                         }}
                     >
                         Current Time: {moment().format("h:mm a")}
@@ -48,7 +50,7 @@ const HomeScreen = ({ navigation }) => {
 
                 <View
                     style={{
-                        flex: 1,
+                        flex: 3,
                         textAlign: "center",
                         alignContent: "center",
                         justifyContent: "center",
@@ -64,7 +66,7 @@ const HomeScreen = ({ navigation }) => {
                         }}
                         placeholder="Activity"
                     />
-                    
+
                     <Text style={{ textAlign: "center" }}>
                         {formatTime(timer)}
                     </Text>

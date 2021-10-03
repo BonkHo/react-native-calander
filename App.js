@@ -7,6 +7,7 @@ import { NativeBaseProvider } from "native-base";
 //Components
 import HomeScreen from "./components/HomeScreen";
 import CalendarScreen from "./components/CalendarScreen";
+import { withTheme } from "styled-components";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,9 +23,9 @@ export default function App() {
                             name: "Home",
                             headerTitleAlign: "center",
                             headerStyle: {
-                                backgroundColor: "#f4511e",
+                                backgroundColor: "#fff",
                             },
-                            headerTintColor: "#fff",
+                            headerTintColor: "#000",
                             headerTitleStyle: {
                                 fontWeight: "bold",
                             },
